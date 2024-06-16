@@ -12,7 +12,7 @@ const Login = () => {
   }
   return (
 
-    <div>
+    <div className='text-[1.4rem] text-center'>
       <p>Sign in with Google to continue</p>
       <button onClick={signInWithGoogle}>Sign in with Google</button>
     </div>

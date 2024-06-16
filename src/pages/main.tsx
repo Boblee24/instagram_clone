@@ -2,7 +2,10 @@ import React from 'react'
 
 const Main = () => {
   return (
-    <div>Hello this is the Main page</div>
+    <div className='text-[1.4rem] text-center'>
+      <p>Hello</p>
+      <p>This is the Main page</p>
+    </div>
   )
 }
 
