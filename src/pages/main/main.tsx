@@ -1,14 +1,16 @@
-import { collection, getDocs } from "firebase/firestore"
+import { Timestamp, collection, getDocs } from "firebase/firestore"
 import { database } from "../../config/firebase"
 import { useEffect, useState } from "react"
 import Post from "./post"
+
 
 export interface PostInterface {
   username: string,
   id: string,
   description: string,
   title: string,
-  userId: string
+  userId: string,
+  timestamp : Timestamp
 }
 
 const Main = () => {

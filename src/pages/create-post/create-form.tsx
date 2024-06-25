@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { auth, database } from "../../config/firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useNavigate } from "react-router-dom"
@@ -27,7 +27,8 @@ const CreateForm = () => {
         await addDoc(postRef, {
             ...data,
             username: user?.displayName,
-            userId: user?.uid
+            userId: user?.uid,
+            timestamp : serverTimestamp()
         })// allow read, write: if request.auth != null && request.resource.id == request.resource.data.userId; this above code hel filter those that can read and write the database 
         navigate("/");
     }
