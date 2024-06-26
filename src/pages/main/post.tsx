@@ -3,7 +3,10 @@ import { PostInterface } from "./main"
 import { auth, database } from "../../config/firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useEffect, useState } from "react"
-import { format } from "date-fns"
+import { format } from "date-fns";
+import { FaComment } from "react-icons/fa";
+import { CiHeart } from "react-icons/ci";
+import { CiShare1 } from "react-icons/ci";
 
 // import { useState } from "react"
 
@@ -51,7 +54,7 @@ const Post = (props: Props) => {
     <div className="text-center">
       <div>
         <h1 className="text-[2rem] font-bold">{Ipost.title} </h1>
-        <span>{Ipost.timestamp && format(Ipost.timestamp.toDate(), "PP p")}</span>
+        <span>{Ipost.timestamp && format(Ipost.timestamp.toDate(), "PP p")}</span> {/* This adds the time in which the post was created*/}
       </div>
       <div className="text-[1.4rem]">
         <p>{Ipost.description}</p>
@@ -59,10 +62,12 @@ const Post = (props: Props) => {
       <div>
         <h4 className="text-[#6565fd] ">@{Ipost.username}</h4>
       </div>
-      <div>
-        <button onClick={likePost} className="border-2 border-black px-2 py-1">
-          {hasUSerLiked ? <> &#128078; </> : <>&#128077; </>} {likes && likes?.length}
+      <div className="">
+        <button onClick={likePost} className="">
+          {hasUSerLiked ? <CiHeart color="black"/> : <>&#128077; </>} {likes && likes?.length}
         </button>
+        <FaComment/>  
+        <CiShare1/>
       </div>
     </div>
   )
